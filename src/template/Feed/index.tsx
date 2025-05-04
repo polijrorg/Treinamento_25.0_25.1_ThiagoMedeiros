@@ -1,15 +1,16 @@
 import React from 'react';
+import SideBar from 'Components/sideBar';
+import MenuPrincipal from 'Components/menu';
+import PiusEmAlta from 'Components/news';
 import * as S from './styles';
 
-const ExampleTemplate = () => {
+const HomeTemplate = () => {
     return (
         <S.Container>
-            <S.ContentWrapper>
-                <S.Title>Treinamento Introdutório de Front</S.Title>
-                <S.Comment>Template criado em Abril de 2025</S.Comment>
-                <S.Description>Template criado por Moizés Ávila</S.Description>
-            </S.ContentWrapper>
+            <SideBar />
+            <MenuPrincipal />
+            <PiusEmAlta />
         </S.Container>
     );
 };
-export default ExampleTemplate;
+export default HomeTemplate;
