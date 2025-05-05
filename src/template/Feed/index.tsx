@@ -1,7 +1,7 @@
 import React from 'react';
 import SideBar from 'Components/sideBar';
 import MenuPrincipal from 'Components/menu';
-import PiusEmAlta from 'Components/news';
+import PiusEmAlta from 'Components/piusEmAlta';
 import * as S from './styles';
 
 const HomeTemplate = () => {
