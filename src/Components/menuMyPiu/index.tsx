@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as S from './styles';
 
 interface MyPiuProps {
@@ -7,6 +7,18 @@ interface MyPiuProps {
 }
 
 const MyPiu: React.FC<MyPiuProps> = ({ textMessage, onDelete }) => {
+    const [like, setLike] = useState(false);
+    const [likeCount, setLikeCount] = useState(0);
+
+    const likeClick = () => {
+        if (like) {
+            setLike(false);
+            setLikeCount(likeCount - 1);
+        } else {
+            setLike(true);
+            setLikeCount(likeCount + 1);
+        }
+    };
     return (
         <S.PiuDiv>
             <S.PiuBar>
@@ -31,16 +43,22 @@ const MyPiu: React.FC<MyPiuProps> = ({ textMessage, onDelete }) => {
             <S.PiuMessage>{textMessage}</S.PiuMessage>
             <S.PiuIconsSection>
                 <S.PiuIconDiv>
-                    <S.PiuIconDivImage src="assets/images/menuImages/BlueArrow.svg" />
-                    <S.PiuIconDivNum>1</S.PiuIconDivNum>
+                    <S.PiuIconDivImage src="/assets/images/menuImages/Arrow_Reload_02.svg" />
+                    <S.PiuIconDivNum>0</S.PiuIconDivNum>
                 </S.PiuIconDiv>
                 <S.PiuIconDiv>
-                    <S.PiuIconDivImage src="/assets/images/menuImages/BlueComment.svg" />
-                    <S.PiuIconDivNum>1</S.PiuIconDivNum>
+                    <S.PiuIconDivImage src="/assets/images/menuImages/Chat_Circle.svg" />
+                    <S.PiuIconDivNum>0</S.PiuIconDivNum>
                 </S.PiuIconDiv>
-                <S.PiuIconDiv>
-                    <S.PiuIconDivImage src="/assets/images/menuImages/BlueHeart.svg" />
-                    <S.PiuIconDivNum>2</S.PiuIconDivNum>
+                <S.PiuIconDiv onClick={likeClick}>
+                    <S.PiuIconDivImage
+                        src={
+                            like
+                                ? '/assets/images/menuImages/BlueHeart.svg'
+                                : '/assets/images/menuImages/Heart_02.svg'
+                        }
+                    />
+                    <S.PiuIconDivNum>{likeCount}</S.PiuIconDivNum>
                 </S.PiuIconDiv>
             </S.PiuIconsSection>
         </S.PiuDiv>

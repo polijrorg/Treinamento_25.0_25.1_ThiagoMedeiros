@@ -10,6 +10,8 @@ export const Container = styles.div`
     background: var(--Slate-1, #151718);
     overflow-y: scroll;
     scrollbar-width: none;
+    padding-bottom: 32px;
+
 `;
 
 export const Line = styles.hr`
